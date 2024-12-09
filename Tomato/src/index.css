@@ -1,0 +1,38 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Outfit:wght@100..900&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+*{
+    font-family: Outfit;
+}
+.active{
+    padding-bottom: 2px;
+    border-bottom: 2px solid tomato;  
+    color: tomato;
+}
+.navbar-menu li{
+    cursor: pointer;
+}
+.header{
+    background: url("/header_img.png") no-repeat;
+    background-size: contain;
+}
+.menu-list::-webkit-scrollbar{
+    display: none;
+}
+.change{
+    border: 2px solid tomato;
+    padding: 2px;
+}
+.food-list{
+    display: grid;
+    grid-template-columns:repeat(auto-fill,minmax(240px, 1fr));
+    margin-top: 30px;
+    gap: 30px;
+    row-gap: 50px;
+    
+}
+.food-item{
+    box-shadow: 0px 0px 10px #00000015;
+}
