@@ -2,8 +2,8 @@ import React from "react";
 import { menu_list } from "../assets/assets";
 import { useState } from "react";
 
-export default function Menu() {
-    const [category, setCategory]=useState("All")
+export default function Menu({category, setCategory}) {
+    
   return (
     <div className="menu flex flex-col gap-5" id="menu">
       <h1 className="menu-heading text-[#262626] font-medium text-[28px]">Explore Our Menu</h1>
