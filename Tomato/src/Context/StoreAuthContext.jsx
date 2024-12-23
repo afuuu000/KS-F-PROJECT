@@ -1,10 +1,15 @@
+import axios from "axios";
 import { createContext, useEffect, useState } from "react";
-import { food_list } from "../assets/assets";
 
 const StoreAuthContext = createContext(null);
 
 const StoreAuthContextProvider = (props) => {
+  const [food_list, setFoodList] = useState([]);
   const [cartItems, setCartItems] = useState({});
+
+  const url = "http://localhost:4000";
+
+  const [token, setToken] = useState("");
 
   const addToCart = (itemId) => {
     if (!cartItems[itemId]) {
@@ -29,6 +34,20 @@ const StoreAuthContextProvider = (props) => {
     return totalAmount;
   };
 
+  const fetchFoodList = async () => {
+    const response=await axios.get(url+"/api/food/list")
+    setFoodList(response.data.data);
+  };
+
+  useEffect(() => {
+    async function loadData() {
+      await fetchFoodList();
+      if (localStorage.getItem("token")) {
+        setToken(localStorage.getItem("token"));
+      }
+    }
+    loadData();
+  }, []);
   const ContextValue = {
     food_list,
     cartItems,
@@ -36,6 +55,9 @@ const StoreAuthContextProvider = (props) => {
     addToCart,
     removeFromCart,
     getTotalCartAmount,
+    url,
+    token,
+    setToken,
   };
 
   return (

@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 import { assets } from "../../assets/assets";
 
 export default function Cart() {
-  const { cartItems, food_list, removeFromCart, getTotalCartAmount,addToCart } =
+  const { cartItems, food_list, removeFromCart, getTotalCartAmount,addToCart,url } =
     useContext(StoreAuthContext);
   const navigate = useNavigate();
   return (
@@ -26,7 +26,7 @@ export default function Cart() {
               return (
                 <div>
                   <div className="cart-items-title cart-items-item grid grid-cols-[1fr_1.5fr_1fr_1fr_1fr_0.5fr] items-center text-[max(1vw_12px)] m-[10px_0px] text-[black] ">
-                    <img className="w-[50px]" src={item.image} alt="" />
+                    <img className="w-[50px]" src={url+"/images/"+item.image} alt="" />
                     <p>{item.name}</p>
                     <p>${item.price}</p>
                     <p>{cartItems[item._id]}</p>

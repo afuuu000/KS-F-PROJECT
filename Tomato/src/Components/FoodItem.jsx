@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 import { StoreAuthContext } from "../Context/StoreAuthContext";
 
 const FoodItem=({ dataValue })=> {
-  let {cartItems, addToCart, removeFromCart} = useContext(StoreAuthContext);
+  let {cartItems, addToCart, removeFromCart,url} = useContext(StoreAuthContext);
   return (
     <motion.div
       initial={{ x: "1", opacity: 0 }}
@@ -15,7 +15,7 @@ const FoodItem=({ dataValue })=> {
       <div className="item-image relative ">
         <img
           className=" w-[100%] rounded-[15px_15px_0px_0px]"
-          src={dataValue.image}
+          src={url+"/images/"+dataValue.image}
           alt="item-image"
         />
         {!cartItems[dataValue._id] ? (

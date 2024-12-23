@@ -48,8 +48,22 @@ hr {
 
 
 
+
 @media (max-width:900px) {
   .sidebar-option p{
     display: none;
+  }
+}
+
+@media (max-width:600px) {
+  .list-table-format{
+    grid-template-columns: 1fr 3fr 1fr;
+    gap: 15px;
+  }
+  .list-table-format.title{
+    display: none;
+  }
+  .add{
+    width: 70%;
   }
 }
